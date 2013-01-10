@@ -6,6 +6,7 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.events.MouseEvent;
 	
 	public class OUYAControllerANETest extends Sprite
 	{
@@ -32,6 +33,7 @@ package
 			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_STICK, rightStick );
 			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.LEFT_TRIGGER, leftTrigger );
 			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_TRIGGER, rightTrigger );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TOUCHPAD, touchpad );
 		}
 		
 		private function buttonDown( ouyaEvent:OUYAControllerANEEvent ):void
@@ -41,6 +43,11 @@ package
 			if( OUYAControllerANE.BUTTON_O == ouyaEvent.button )
 			{
 				trace( "O Button Pressed" );
+			}
+			
+			if( OUYAControllerANE.BUTTON_OUYA == ouyaEvent.button )
+			{
+				trace( "OUYA Home Button Pressed" );
 			}
 		}
 		
@@ -72,6 +79,11 @@ package
 		private function rightStick( ouyaEvent:OUYAControllerANEEvent ):void
 		{
 			trace( "Right Stick: " + ouyaEvent.x + ", " + ouyaEvent.y );
+		}
+		
+		private function touchpad( ouyaEvent:OUYAControllerANEEvent ):void
+		{
+			trace( "Touch Pad: " + ouyaEvent.x + ", " + ouyaEvent.y );
 		}
 	}
 }

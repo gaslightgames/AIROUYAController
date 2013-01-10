@@ -34,6 +34,7 @@ To-Do
 * Send Events for Triggers [DONE]
 * Create Repo on github [DONE]
 * Multiple Controller Support [DONE]
-* Touchpad Support
+* Touchpad Support [DONE - limitation: Touchpad acts as mouse, so the OuyaController has no "Player" value for whom used the trackpad]
 * Fix Deadzone issue with Thumbsticks [DONE]
+* Add OUYA Button [DONE - although we cannot intercept this!  The button support is in for when we may be able to find a workaround]
 * ...?

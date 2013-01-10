@@ -13,6 +13,8 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		public static const LEFT_TRIGGER:String				= "lefttrigger";
 		public static const RIGHT_TRIGGER:String			= "righttrigger";
 		
+		public static const TOUCHPAD:String					= "touchpad";
+		
 		public var button:int 	= 0;
 		public var x:Number 	= 0.0;
 		public var y:Number		= 0.0;

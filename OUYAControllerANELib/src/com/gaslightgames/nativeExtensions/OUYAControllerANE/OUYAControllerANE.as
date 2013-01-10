@@ -25,6 +25,8 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		public static const RIGHT_TRIGGER:int			= 16;
 		public static const LEFT_SHOULDER:int			= 17;
 		public static const RIGHT_SHOULDER:int			= 18;
+		public static const BUTTON_OUYA:int				= 19;
+		public static const TOUCHPAD:int				= 20;
 		
 		public var player1:PlayerController;
 		public var player2:PlayerController;
@@ -99,6 +101,11 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 			if( "RIGHTTRIGGER" == statusEvent.code )
 			{
 				func = "rightTrigger";
+			}
+			
+			if( "TOUCHPAD" == statusEvent.code )
+			{
+				func = "touchPad";
 			}
 			
 			switch( player )
