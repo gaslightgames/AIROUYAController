@@ -26,29 +26,52 @@ package
 		{
 			this.ouyaController = new OUYAControllerANE();
 			
-			this.ouyaController.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
-			this.ouyaController.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
-			this.ouyaController.addEventListener( OUYAControllerANEEvent.LEFT_STICK_X, leftStick );
-			this.ouyaController.addEventListener( OUYAControllerANEEvent.LEFT_STICK_Y, leftStick );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.LEFT_STICK, leftStick );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_STICK, rightStick );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.LEFT_TRIGGER, leftTrigger );
+			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_TRIGGER, rightTrigger );
 		}
 		
 		private function buttonDown( ouyaEvent:OUYAControllerANEEvent ):void
 		{
 			trace( "Button Down" );
-			if( this.ouyaController.button_O )
+			
+			if( OUYAControllerANE.BUTTON_O == ouyaEvent.button )
 			{
-				trace( "Button O Pressed" );
+				trace( "O Button Pressed" );
 			}
 		}
 		
 		private function buttonUp( ouyaEvent:OUYAControllerANEEvent ):void
 		{
 			trace( "Button Up" );
+			
+			if( OUYAControllerANE.RIGHT_SHOULDER == ouyaEvent.button )
+			{
+				trace( "Right Shoulder Button Released" );
+			}
+		}
+		
+		private function leftTrigger( ouyaEvent:OUYAControllerANEEvent ):void
+		{
+			trace( "Left Trigger: " + ouyaEvent.y );
+		}
+		
+		private function rightTrigger( ouyaEvent:OUYAControllerANEEvent ):void
+		{
+			trace( "Right Trigger: " + ouyaEvent.y );
 		}
 		
 		private function leftStick( ouyaEvent:OUYAControllerANEEvent ):void
 		{
-			trace( "Left Stick: " + this.ouyaController.leftStickX + ", " + this.ouyaController.leftStickY );
+			trace( "Left Stick: " + ouyaEvent.x + ", " + ouyaEvent.y );
+		}
+		
+		private function rightStick( ouyaEvent:OUYAControllerANEEvent ):void
+		{
+			trace( "Right Stick: " + ouyaEvent.x + ", " + ouyaEvent.y );
 		}
 	}
 }

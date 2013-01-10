@@ -157,116 +157,64 @@ public class OUYAControllerANEExtensionContext extends FREContext
 		dispatchStatusEventAsync( eventName, keyCodeStr );
 	}
 	
-	public void notifyControllerLeftStickX( int player, float value )
+	public void notifyControllerLeftStick( int player, float x, float y )
 	{
 		// Set the AnalogueValue as a String - so it can be passed to AS3
-		String analogueValue = String.valueOf( value );
+		String playerStr = "0_";
+		String xValue = String.valueOf( x );
+		String yValue = String.valueOf( y );
 		
 		if( 0 == player )
 		{
-			analogueValue = "1_" + analogueValue;
+			playerStr = "1_";
 		}
 		else if( 1 == player )
 		{
-			analogueValue = "2_" + analogueValue;
+			playerStr = "2_";
 		}
 		else if( 2 == player )
 		{
-			analogueValue = "3_" + analogueValue;
+			playerStr = "3_";
 		}
 		else if( 3 == player )
 		{
-			analogueValue = "4_" + analogueValue;
+			playerStr = "4_";
 		}
 		
 		// Create an Event Name
-		String eventName = "LSX";
+		String eventName = "LEFTSTICK";
 		
-		dispatchStatusEventAsync( eventName, analogueValue );
+		dispatchStatusEventAsync( eventName, playerStr + xValue + "," + yValue );
 	}
 	
-	public void notifyControllerLeftStickY( int player, float value )
+	public void notifyControllerRightStick( int player, float x, float y )
 	{
 		// Set the AnalogueValue as a String - so it can be passed to AS3
-		String analogueValue = String.valueOf( value );
+		String playerStr = "0_";
+		String xValue = String.valueOf( x );
+		String yValue = String.valueOf( y );
 		
 		if( 0 == player )
 		{
-			analogueValue = "1_" + analogueValue;
+			playerStr = "1_";
 		}
 		else if( 1 == player )
 		{
-			analogueValue = "2_" + analogueValue;
+			playerStr = "2_";
 		}
 		else if( 2 == player )
 		{
-			analogueValue = "3_" + analogueValue;
+			playerStr = "3_";
 		}
 		else if( 3 == player )
 		{
-			analogueValue = "4_" + analogueValue;
+			playerStr = "4_";
 		}
 		
 		// Create an Event Name
-		String eventName = "LSY";
+		String eventName = "RIGHTSTICK";
 		
-		dispatchStatusEventAsync( eventName, analogueValue );
-	}
-	
-	public void notifyControllerRightStickX( int player, float value )
-	{
-		// Set the AnalogueValue as a String - so it can be passed to AS3
-		String analogueValue = String.valueOf( value );
-		
-		if( 0 == player )
-		{
-			analogueValue = "1_" + analogueValue;
-		}
-		else if( 1 == player )
-		{
-			analogueValue = "2_" + analogueValue;
-		}
-		else if( 2 == player )
-		{
-			analogueValue = "3_" + analogueValue;
-		}
-		else if( 3 == player )
-		{
-			analogueValue = "4_" + analogueValue;
-		}
-		
-		// Create an Event Name
-		String eventName = "RSX";
-		
-		dispatchStatusEventAsync( eventName, analogueValue );
-	}
-	
-	public void notifyControllerRightStickY( int player, float value )
-	{
-		// Set the AnalogueValue as a String - so it can be passed to AS3
-		String analogueValue = String.valueOf( value );
-		
-		if( 0 == player )
-		{
-			analogueValue = "1_" + analogueValue;
-		}
-		else if( 1 == player )
-		{
-			analogueValue = "2_" + analogueValue;
-		}
-		else if( 2 == player )
-		{
-			analogueValue = "3_" + analogueValue;
-		}
-		else if( 3 == player )
-		{
-			analogueValue = "4_" + analogueValue;
-		}
-		
-		// Create an Event Name
-		String eventName = "RSY";
-		
-		dispatchStatusEventAsync( eventName, analogueValue );
+		dispatchStatusEventAsync( eventName, playerStr + xValue + "," + yValue );
 	}
 	
 	public void notifyControllerLeftTrigger( int player, float value )
@@ -292,7 +240,7 @@ public class OUYAControllerANEExtensionContext extends FREContext
 		}
 		
 		// Create an Event Name
-		String eventName = "LT";
+		String eventName = "LEFTTRIGGER";
 		
 		dispatchStatusEventAsync( eventName, analogueValue );
 	}
@@ -320,7 +268,7 @@ public class OUYAControllerANEExtensionContext extends FREContext
 		}
 		
 		// Create an Event Name
-		String eventName = "RT";
+		String eventName = "RIGHTTRIGGER";
 		
 		dispatchStatusEventAsync( eventName, analogueValue );
 	}
