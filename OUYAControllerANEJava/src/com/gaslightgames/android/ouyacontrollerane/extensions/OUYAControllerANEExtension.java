@@ -15,14 +15,12 @@ public class OUYAControllerANEExtension implements FREExtension
 
 	public void dispose()
 	{
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	public void initialize()
 	{
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

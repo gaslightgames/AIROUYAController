@@ -12,6 +12,16 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 	OUYAControllerANEExtensionContext ouyaExtensionContext;
 	OuyaController controller;
 	
+	float leftStickXOld 	= 0.0f;
+	float leftStickYOld 	= 0.0f;
+	float rightStickXOld 	= 0.0f;
+	float rightStickYOld 	= 0.0f;
+	
+	float leftStickX 		= 0.0f;
+	float leftStickY 		= 0.0f;
+	float rightStickX 		= 0.0f;
+	float rightStickY 		= 0.0f;
+	
 	public OUYAControllerANEMotionListener( FREContext context )
 	{
 		this.ouyaExtensionContext = (OUYAControllerANEExtensionContext)context;
@@ -29,60 +39,73 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 		
 		controller = OuyaController.getControllerByDeviceId( event.getDeviceId() );
 		
-		// Check if Left Thumbstick (Handles +ve and -ve		
-		// Check if X Axis
-		if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_LS_X ) )
+		if( MotionEvent.ACTION_HOVER_MOVE == event.getActionMasked() )
 		{
-			this.ouyaExtensionContext.notifyControllerLeftStickX( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_LS_X ) );
+			// TouchPad movement
+			this.ouyaExtensionContext.notifyControllerTouchPad( event.getX(), event.getY() );//controller.getPlayerNum(), event.getX(), event.getY() );
 		}
 		else
 		{
-			this.ouyaExtensionContext.notifyControllerLeftStickX( controller.getPlayerNum(), 0.0f );
+			// Thumbstick or Trigger move
+			
+			// Check if Left Thumbstick (Handles +ve and -ve		
+			// Check if X Axis
+			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_LS_X ) )
+			{
+				this.leftStickX = event.getAxisValue( OuyaController.AXIS_LS_X );
+			}
+			
+			// Check if Y Axis
+			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_LS_Y ) )
+			{
+				this.leftStickY = event.getAxisValue( OuyaController.AXIS_LS_Y );
+			}
+			
+			if( this.leftStickXOld != this.leftStickX && this.leftStickYOld != this.leftStickY )
+			{
+				if( null != controller )
+				{
+					this.ouyaExtensionContext.notifyControllerLeftStick( controller.getPlayerNum(), this.leftStickX, this.leftStickY );
+				}
+				this.leftStickXOld = this.leftStickX;
+				this.leftStickYOld = this.leftStickY;
+			}
+			
+			// Check if Right Thumbstick
+			// Check if X Axis
+			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_RS_X ) )
+			{
+				this.rightStickX = event.getAxisValue( OuyaController.AXIS_RS_X );
+			}
+			
+			// Check if Y Axis
+			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_RS_Y ) )
+			{
+				this.rightStickY = event.getAxisValue( OuyaController.AXIS_RS_Y );
+			}
+			
+			if( this.rightStickXOld != this.rightStickX && this.rightStickYOld != this.rightStickY )
+			{
+				if( null != controller )
+				{
+					this.ouyaExtensionContext.notifyControllerRightStick( controller.getPlayerNum(), this.rightStickX, this.rightStickY );
+				}
+				this.rightStickXOld = this.rightStickX;
+				this.rightStickYOld = this.rightStickY;
+			}
+			
+			// Check if Left Trigger
+			if( 0 < event.getAxisValue( OuyaController.AXIS_L2 ) )
+			{
+				this.ouyaExtensionContext.notifyControllerLeftTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_L2 ) );
+			}
+			
+			// Check if Right Trigger
+			if( 0 < event.getAxisValue( OuyaController.AXIS_R2 ) )
+			{
+				this.ouyaExtensionContext.notifyControllerRightTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_R2 ) );
+			}
 		}
-		
-		// Check if Y Axis
-		if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_LS_Y ) )
-		{
-			this.ouyaExtensionContext.notifyControllerLeftStickY( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_LS_Y ) );
-		}
-		else
-		{
-			this.ouyaExtensionContext.notifyControllerLeftStickY( controller.getPlayerNum(), 0.0f );
-		}
-		
-		// Check if Right Thumbstick
-		// Check if X Axis
-		if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_RS_X ) )
-		{
-			this.ouyaExtensionContext.notifyControllerRightStickX( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_RS_X ) );
-		}
-		else
-		{
-			this.ouyaExtensionContext.notifyControllerRightStickX( controller.getPlayerNum(), 0.0f );
-		}
-		
-		// Check if Y Axis
-		if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_RS_Y ) )
-		{
-			this.ouyaExtensionContext.notifyControllerRightStickY( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_RS_Y ) );
-		}
-		else
-		{
-			this.ouyaExtensionContext.notifyControllerRightStickY( controller.getPlayerNum(), 0.0f );
-		}
-		
-		// Check if Left Trigger
-		if( 0 < event.getAxisValue( OuyaController.AXIS_L2 ) )
-		{
-			this.ouyaExtensionContext.notifyControllerLeftTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_L2 ) );
-		}
-		
-		// Check if Right Trigger
-		if( 0 < event.getAxisValue( OuyaController.AXIS_R2 ) )
-		{
-			this.ouyaExtensionContext.notifyControllerRightTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_R2 ) );
-		}
-		
 		return true;
 	}
 

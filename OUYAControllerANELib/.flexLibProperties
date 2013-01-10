@@ -3,6 +3,7 @@
   <includeClasses>
     <classEntry path="com.gaslightgames.nativeExtensions.OUYAControllerANE.OUYAControllerANE"/>
     <classEntry path="com.gaslightgames.nativeExtensions.OUYAControllerANE.OUYAControllerANEEvent"/>
+    <classEntry path="com.gaslightgames.nativeExtensions.OUYAControllerANE.PlayerController"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -20,19 +20,21 @@ Current Progress
 ================
 
 All buttons work (except the OUYA Button - this is an outside case)
-All Sticks work (some noise, in that 0.0 on the axis is sent often!)
+All Sticks work (some noise, in that 0.0 on the axis is sent often! - FIXED!)
 Both Triggers work
 
 To-Do
 =====
 
-* Build base ANE
-* Include OuyaController library
-* Extract .class files from OuyaController and embed into ANE (at JAR level)
-* Send Events for Buttons
-* Send Events for Thumbsticks
-* Send Events for Triggers
-* Create Repo on github
-* Multiple Controller Support
-* Touchpad Support
+* Build base ANE [DONE]
+* Include OuyaController library [DONE]
+* Extract .class files from OuyaController and embed into ANE (at JAR level) [DONE - must be done on ever new JAR!]
+* Send Events for Buttons [DONE]
+* Send Events for Thumbsticks [DONE]
+* Send Events for Triggers [DONE]
+* Create Repo on github [DONE]
+* Multiple Controller Support [DONE]
+* Touchpad Support [DONE - limitation: Touchpad acts as mouse, so the OuyaController has no "Player" value for whom used the trackpad]
+* Fix Deadzone issue with Thumbsticks [DONE]
+* Add OUYA Button [DONE - although we cannot intercept this!  The button support is in for when we may be able to find a workaround]
 * ...?
