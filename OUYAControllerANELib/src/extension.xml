@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+	<id>com.gaslightgames.OUYAControllerANE</id>
+	<versionNumber>1</versionNumber>
+	
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>OUYAControllerANE.jar</nativeLibrary>
+				<initializer>com.gaslightgames.android.ouyacontrollerane.extensions.OUYAControllerANEExtension</initializer>
+			</applicationDeployment>
+		</platform>
+	</platforms>
+</extension>
