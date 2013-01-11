@@ -54,14 +54,22 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 			{
 				this.leftStickX = event.getAxisValue( OuyaController.AXIS_LS_X );
 			}
+			else
+			{
+				this.leftStickX = 0.0f;
+			}
 			
 			// Check if Y Axis
 			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_LS_Y ) )
 			{
 				this.leftStickY = event.getAxisValue( OuyaController.AXIS_LS_Y );
 			}
+			else
+			{
+				this.leftStickY = 0.0f;
+			}
 			
-			if( this.leftStickXOld != this.leftStickX && this.leftStickYOld != this.leftStickY )
+			if( this.leftStickXOld != this.leftStickX || this.leftStickYOld != this.leftStickY )
 			{
 				if( null != controller )
 				{
@@ -77,14 +85,22 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 			{
 				this.rightStickX = event.getAxisValue( OuyaController.AXIS_RS_X );
 			}
+			else
+			{
+				this.rightStickX = 0.0f;
+			}
 			
 			// Check if Y Axis
 			if( -1.5258789E-5f != event.getAxisValue( OuyaController.AXIS_RS_Y ) )
 			{
 				this.rightStickY = event.getAxisValue( OuyaController.AXIS_RS_Y );
 			}
+			else
+			{
+				this.rightStickY = 0.0f;
+			}
 			
-			if( this.rightStickXOld != this.rightStickX && this.rightStickYOld != this.rightStickY )
+			if( this.rightStickXOld != this.rightStickX || this.rightStickYOld != this.rightStickY )
 			{
 				if( null != controller )
 				{

@@ -149,28 +149,32 @@ package
 		
 		private function leftStick( $ouyaEvent:OUYAControllerANEEvent ):void
 		{
-			if ( ( $ouyaEvent.x > 0.01 ) || ( $ouyaEvent.x < -0.01 ) || ( $ouyaEvent.y > 0.01 ) || ( $ouyaEvent.y < -0.01 ) )
+			/*if ( ( $ouyaEvent.x > 0.01 ) || ( $ouyaEvent.x < -0.01 ) || ( $ouyaEvent.y > 0.01 ) || ( $ouyaEvent.y < -0.01 ) )
 			{
 				_controller.leftJoystickOffset( $ouyaEvent.x, $ouyaEvent.y );
 			}
 			else
 			{
 				_controller.leftJoystickOffset(0,0);
-			}
+			}*/
+			
+			_controller.leftJoystickOffset( $ouyaEvent.x, $ouyaEvent.y );
 			
 			reset();
 		}
 		
 		private function rightStick( $ouyaEvent:OUYAControllerANEEvent ):void
 		{
-			if (( $ouyaEvent.x > 0.01) || ( $ouyaEvent.x < -0.01) || ( $ouyaEvent.y > 0.01) || ( $ouyaEvent.y < -0.01))
+			/*if (( $ouyaEvent.x > 0.01) || ( $ouyaEvent.x < -0.01) || ( $ouyaEvent.y > 0.01) || ( $ouyaEvent.y < -0.01))
 			{
 				_controller.rightJoystickOffset( $ouyaEvent.x, $ouyaEvent.y);
 			}
 			else
 			{
 				_controller.rightJoystickOffset(0,0);
-			}
+			}*/
+			
+			_controller.rightJoystickOffset( $ouyaEvent.x, $ouyaEvent.y );
 			
 			reset();
 		}
