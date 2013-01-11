@@ -34,7 +34,8 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="5" linkType="2" path="D:/Gaslight Games/OUYA/OUYAControllerANELib/OUYAControllerANE.ane"/>
+      <libraryPathEntry kind="3" linkType="1" path="bin/assets.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="5" linkType="2" path="/Users/claytonrichardson/Development/tools/AIROUYAController/OUYAControllerANELib/OUYAControllerANE.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -52,7 +53,7 @@
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths>
-          <anePathEntry path="D:/Gaslight Games/OUYA/OUYAControllerANELib/OUYAControllerANE.ane"/>
+          <anePathEntry path="/Users/claytonrichardson/Development/tools/AIROUYAController/OUYAControllerANELib/OUYAControllerANE.ane"/>
         </anePaths>
         <newLaunchParams/>
         <modifiedLaunchParams/>
