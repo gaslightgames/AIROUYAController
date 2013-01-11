@@ -13,72 +13,40 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		
 		public function buttonDown( keyCode:int ):void
 		{
-			var downEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.BUTTON_DOWN );
-			downEvent.button = keyCode;
-			this.dispatchEvent( downEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.BUTTON_DOWN, keyCode ) );
 		}
 		
 		public function buttonUp( keyCode:int ):void
 		{
-			var upEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.BUTTON_UP );
-			upEvent.button = keyCode;
-			this.dispatchEvent( upEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.BUTTON_UP, keyCode ) );
 		}
 		
 		public function leftStick( value:String ):void
 		{
 			var xySplitStrings:Array = String( value ).split( "," );
-			
-			var leftStickEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.LEFT_STICK );
-			leftStickEvent.button = OUYAControllerANE.LEFT_STICK_X;	// We just use the X so that a value is populated in this property
-			leftStickEvent.x = xySplitStrings[0];
-			leftStickEvent.y = xySplitStrings[1];
-			
-			this.dispatchEvent( leftStickEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.STICK_LEFT, 0, xySplitStrings[0], xySplitStrings[1] ) );
 		}
 		
 		public function rightStick( value:String ):void
 		{
 			var xySplitStrings:Array = String( value ).split( "," );
-			
-			var rightStickEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.RIGHT_STICK );
-			rightStickEvent.button = OUYAControllerANE.RIGHT_STICK_X;	// We just use the X so that a value is populated in this property
-			rightStickEvent.x = xySplitStrings[0];
-			rightStickEvent.y = xySplitStrings[1];
-			
-			this.dispatchEvent( rightStickEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.STICK_RIGHT, 0, xySplitStrings[0], xySplitStrings[1] ) );
 		}
 		
 		public function leftTrigger( value:Number ):void
 		{
-			var leftTriggerEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.LEFT_TRIGGER );
-			leftTriggerEvent.button = OUYAControllerANE.LEFT_TRIGGER;
-			leftTriggerEvent.x = 0.0;
-			leftTriggerEvent.y = value;
-			
-			this.dispatchEvent( leftTriggerEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.TRIGGER_LEFT, OUYAControllerANE.LEFT_TRIGGER, 0, value  ) );
 		}
 		
 		public function rightTrigger( value:Number ):void
 		{
-			var rightTriggerEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.RIGHT_TRIGGER );
-			rightTriggerEvent.button = OUYAControllerANE.RIGHT_TRIGGER;
-			rightTriggerEvent.x = 0.0;
-			rightTriggerEvent.y = value;
-			
-			this.dispatchEvent( rightTriggerEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.TRIGGER_RIGHT, OUYAControllerANE.RIGHT_TRIGGER, 0, value ) );
 		}
 		
 		public function touchPad( value:String ):void
 		{
 			var xySplitStrings:Array = String( value ).split( "," );
-			
-			var touchpadEvent:OUYAControllerANEEvent = new OUYAControllerANEEvent( OUYAControllerANEEvent.TOUCHPAD );
-			touchpadEvent.button = OUYAControllerANE.TOUCHPAD;
-			touchpadEvent.x = xySplitStrings[0];
-			touchpadEvent.y = xySplitStrings[1];
-			
-			this.dispatchEvent( touchpadEvent );
+			this.dispatchEvent( new OUYAControllerANEEvent( OUYAControllerANEEvent.TOUCHPAD, OUYAControllerANE.TOUCHPAD, xySplitStrings[0], xySplitStrings[1] ) );
 		}
 	}
 }
