@@ -1,19 +1,38 @@
 package
 {
 	import com.gaslightgames.nativeExtensions.OUYAControllerANE.OUYAControllerANE;
-	import com.gaslightgames.nativeExtensions.OUYAControllerANE.OUYAControllerANEEvent;
 	
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
-	import flash.events.MouseEvent;
 	
 	public class OUYAControllerANETest extends Sprite
 	{
-		private var ouyaController:OUYAControllerANE
+		private var _ouyaController:OUYAControllerANE
+		private var _view:MovieClip;
+		
+		private static const CLIP_CONTROLLER_1:String = "controller1";
+		private static const CLIP_CONTROLLER_2:String = "controller2";
+		private static const CLIP_CONTROLLER_3:String = "controller3";
+		private static const CLIP_CONTROLLER_4:String = "controller4";
+		
+		private var _controller1Controller:ControllerDisplayController;
+		private var _controller2Controller:ControllerDisplayController;
+		private var _controller3Controller:ControllerDisplayController;
+		private var _controller4Controller:ControllerDisplayController;
+		
+		private var _controller1Player:ControllerPlayerController;
+		private var _controller2Player:ControllerPlayerController;
+		private var _controller3Player:ControllerPlayerController;
+		private var _controller4Player:ControllerPlayerController;
 		
 		public function OUYAControllerANETest()
 		{
+			_view = new Assets();
+			addChild(_view);
+			_view.stop();
+			
 			super();
 			
 			// support autoOrients
@@ -25,65 +44,17 @@ package
 		
 		private function init():void
 		{
-			this.ouyaController = new OUYAControllerANE();
+			_controller1Controller = new ControllerDisplayController(_view[CLIP_CONTROLLER_1]);
+			_controller2Controller = new ControllerDisplayController(_view[CLIP_CONTROLLER_2]);
+			_controller3Controller = new ControllerDisplayController(_view[CLIP_CONTROLLER_3]);
+			_controller4Controller = new ControllerDisplayController(_view[CLIP_CONTROLLER_4]);
 			
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.LEFT_STICK, leftStick );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_STICK, rightStick );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.LEFT_TRIGGER, leftTrigger );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.RIGHT_TRIGGER, rightTrigger );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TOUCHPAD, touchpad );
-		}
-		
-		private function buttonDown( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Button Down" );
+			_ouyaController = new OUYAControllerANE();
 			
-			if( OUYAControllerANE.BUTTON_O == ouyaEvent.button )
-			{
-				trace( "O Button Pressed" );
-			}
-			
-			if( OUYAControllerANE.BUTTON_OUYA == ouyaEvent.button )
-			{
-				trace( "OUYA Home Button Pressed" );
-			}
-		}
-		
-		private function buttonUp( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Button Up" );
-			
-			if( OUYAControllerANE.RIGHT_SHOULDER == ouyaEvent.button )
-			{
-				trace( "Right Shoulder Button Released" );
-			}
-		}
-		
-		private function leftTrigger( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Left Trigger: " + ouyaEvent.y );
-		}
-		
-		private function rightTrigger( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Right Trigger: " + ouyaEvent.y );
-		}
-		
-		private function leftStick( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Left Stick: " + ouyaEvent.x + ", " + ouyaEvent.y );
-		}
-		
-		private function rightStick( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Right Stick: " + ouyaEvent.x + ", " + ouyaEvent.y );
-		}
-		
-		private function touchpad( ouyaEvent:OUYAControllerANEEvent ):void
-		{
-			trace( "Touch Pad: " + ouyaEvent.x + ", " + ouyaEvent.y );
+			_controller1Player = new ControllerPlayerController( _controller1Controller, _ouyaController.player1);
+			_controller1Player = new ControllerPlayerController( _controller2Controller, _ouyaController.player2);
+			_controller1Player = new ControllerPlayerController( _controller3Controller, _ouyaController.player3);
+			_controller1Player = new ControllerPlayerController( _controller4Controller, _ouyaController.player4);
 		}
 	}
 }
