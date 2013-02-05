@@ -3,18 +3,18 @@ AIROUYAController
 
 AIROUYAController is an unofficial Native Extension for Adobe AIR designed to expose the functionalities of the OUYA Controller to ActionScript 3.
 
-This Extension is in HEAVY development, is constantly being updated and modified.  It is not exactly "stable" nor ready for commercial use.  Use with caution and be aware of problems, changes etc!
-
 Folder Structure
 ================
 
-There are 3 folders within the project:
-1) OUYAControllerANEJava
-The Native Java code.
-2) OUYAControllerANELib
-The ActionScript 3 Interface code.  Generates a SWC.
-3) OUYAControllerANETest
-A simple application that implements the ANE
+There are 4 folders within the project:
+<BR><B>1) OUYAControllerANEJava</B>
+<BR>The Native Java code.
+<BR><B>2) OUYAControllerANELib</B>
+<BR>The ActionScript 3 Interface code.  Generates a SWC.
+<BR><B>3) OUYAControllerANESimpleTest</B>
+<BR>A simple application that implements the ANE.  This merely traces the button presses and axis to the console
+<BR><B>4) OUYAControllerANETest</B>
+<BR>A more comprehensive demo project with UI.
 4) OUYAControllerANEDefaultLib
 Creates the "default" SWC.  This mimics the functionality of the ANE for unsupported platforms.
 5) OUYAControllerWindowsTest
@@ -23,9 +23,10 @@ Demonstrates that any AIR application can have the ANE attached, now that the de
 Current Progress
 ================
 
-All buttons work (except the OUYA Button - this is an outside case)
-All Sticks work (some noise, in that 0.0 on the axis is sent often! - FIXED!)
-Both Triggers work
+All buttons work (except the OUYA System/Home Button - this is an outside case)
+<BR>Both Sticks work (some noise, in that 0.0 on the axis is sent often! - FIXED!)
+<BR>Both Triggers work (work as buttons AND analogue triggers)
+<BR>Touchpad works.
 
 To-Do
 =====
@@ -41,5 +42,7 @@ To-Do
 * Touchpad Support [DONE - limitation: Touchpad acts as mouse, so the OuyaController has no "Player" value for whom used the trackpad]
 * Fix Deadzone issue with Thumbsticks [DONE]
 * Add OUYA Button [DONE - although we cannot intercept this!  The button support is in for when we may be able to find a workaround]
+* Fix Thumbstick 0,0 Axis bug [DONE]
+* Add more comprehensive and UI driven demonstration project [DONE - Thanks to Clayton!]
 * Add isControllerSupported method [DONE - We use "isControllerSupported" instead of "isSupported" because if you use multiple ANEs and if these ANEs share any method names, whichever was the last loaded will use the name.]
 * Add "default" platform [DONE - allows us to use the ANE in the same application for multiple platforms]
