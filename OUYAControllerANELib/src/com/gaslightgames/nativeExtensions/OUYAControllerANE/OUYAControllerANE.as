@@ -35,6 +35,9 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		
 		private static var extContext:ExtensionContext = null;
 		
+		private static var _isSupported:Boolean = false;
+		private static var _isSupportedSet:Boolean = false;
+		
 		public function OUYAControllerANE( target:IEventDispatcher=null )
 		{
 			trace( "Building OUYA Controller ANE" );
@@ -43,7 +46,7 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 				trace( "Building Extension Context" );
 				extContext = ExtensionContext.createExtensionContext( "com.gaslightgames.OUYAControllerANE", "OUYAControllerANE" );
 				
-				extContext.call( "init" );
+				extContext.call( "initController" );
 				
 				if( extContext )
 				{
@@ -128,7 +131,30 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		
 		public function test():void
 		{
-			extContext.call( "test" );
+			extContext.call( "testController" );
+		}
+		
+		public static function get isSupported():Boolean
+		{
+			if( !_isSupportedSet )
+			{
+				try
+				{
+					_isSupportedSet = true;
+					
+					var testContext:ExtensionContext = ExtensionContext.createExtensionContext( "com.gaslightgames.OUYAControllerANE", "OUYAControllerANE" );
+					_isSupported = testContext.call( "isControllerSupported" );// as Boolean;
+					testContext.dispose();
+				}
+				catch( error:Error )
+				{
+					trace( error.message, error.errorID );
+					
+					return _isSupported;
+				}
+			}
+			
+			return _isSupported;
 		}
 	}
 }

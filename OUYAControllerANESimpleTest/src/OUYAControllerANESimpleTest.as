@@ -24,15 +24,22 @@ package
 		
 		private function init():void
 		{
-			this.ouyaController = new OUYAControllerANE();
-			
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.STICK_LEFT, leftStick );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.STICK_RIGHT, rightStick );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TRIGGER_LEFT, leftTrigger );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TRIGGER_RIGHT, rightTrigger );
-			this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TOUCHPAD, touchpad );
+			if( OUYAControllerANE.isSupported )
+			{
+				this.ouyaController = new OUYAControllerANE();
+				
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.STICK_LEFT, leftStick );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.STICK_RIGHT, rightStick );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TRIGGER_LEFT, leftTrigger );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TRIGGER_RIGHT, rightTrigger );
+				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.TOUCHPAD, touchpad );
+			}
+			else
+			{
+				trace( "Controller Not Supported" );
+			}
 		}
 		
 		private function buttonDown( ouyaEvent:OUYAControllerANEEvent ):void

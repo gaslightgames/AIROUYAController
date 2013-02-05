@@ -231,8 +231,9 @@ public class OUYAControllerANEExtensionContext extends FREContext
 	{
 		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 
-		functionMap.put( "init", new OUYAControllerANEInit() );
-		functionMap.put( "test", new OUYAControllerANETest() );
+		functionMap.put( "initController", new OUYAControllerANEInit() );
+		functionMap.put( "testController", new OUYAControllerANETest() );
+		functionMap.put( "isControllerSupported", new OUYAControllerANESupported() );
 
 		return functionMap;
 	}

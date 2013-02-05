@@ -9,5 +9,8 @@
 				<initializer>com.gaslightgames.android.ouyacontrollerane.extensions.OUYAControllerANEExtension</initializer>
 			</applicationDeployment>
 		</platform>
+		<platform name="default"> 
+            <applicationDeployment/> 
+        </platform>
 	</platforms>
 </extension>

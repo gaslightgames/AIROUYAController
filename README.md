@@ -15,6 +15,10 @@ The Native Java code.
 The ActionScript 3 Interface code.  Generates a SWC.
 3) OUYAControllerANETest
 A simple application that implements the ANE
+4) OUYAControllerANEDefaultLib
+Creates the "default" SWC.  This mimics the functionality of the ANE for unsupported platforms.
+5) OUYAControllerWindowsTest
+Demonstrates that any AIR application can have the ANE attached, now that the default platform is included.
 
 Current Progress
 ================
@@ -37,4 +41,5 @@ To-Do
 * Touchpad Support [DONE - limitation: Touchpad acts as mouse, so the OuyaController has no "Player" value for whom used the trackpad]
 * Fix Deadzone issue with Thumbsticks [DONE]
 * Add OUYA Button [DONE - although we cannot intercept this!  The button support is in for when we may be able to find a workaround]
-* ...?
+* Add isControllerSupported method [DONE - We use "isControllerSupported" instead of "isSupported" because if you use multiple ANEs and if these ANEs share any method names, whichever was the last loaded will use the name.]
+* Add "default" platform [DONE - allows us to use the ANE in the same application for multiple platforms]
