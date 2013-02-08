@@ -6,7 +6,7 @@ AIROUYAController is an unofficial Native Extension for Adobe AIR designed to ex
 Folder Structure
 ================
 
-There are 4 folders within the project:
+There are 6 folders within the project:
 <BR><B>1) OUYAControllerANEJava</B>
 <BR>The Native Java code.
 <BR><B>2) OUYAControllerANELib</B>
@@ -15,10 +15,10 @@ There are 4 folders within the project:
 <BR>A simple application that implements the ANE.  This merely traces the button presses and axis to the console
 <BR><B>4) OUYAControllerANETest</B>
 <BR>A more comprehensive demo project with UI.
-4) OUYAControllerANEDefaultLib
-Creates the "default" SWC.  This mimics the functionality of the ANE for unsupported platforms.
-5) OUYAControllerWindowsTest
-Demonstrates that any AIR application can have the ANE attached, now that the default platform is included.
+<BR><B>5) OUYAControllerANEDefaultLib</B>
+<BR>Creates the "default" SWC.  This mimics the functionality of the ANE for unsupported platforms.
+<BR><B>6) OUYAControllerWindowsTest</B>
+<BR>Demonstrates that any AIR application can have the ANE attached, now that the default platform is included.
 
 Current Progress
 ================
