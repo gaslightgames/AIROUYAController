@@ -24,6 +24,8 @@ package
 		
 		private function init():void
 		{
+			trace( "Starting Test..." );
+			
 			if( OUYAControllerANE.isSupported )
 			{
 				this.ouyaController = new OUYAControllerANE();
@@ -51,7 +53,7 @@ package
 				trace( "O Button Pressed" );
 			}
 			
-			if( OUYAControllerANE.BUTTON_SYSTEM == ouyaEvent.button )
+			if( OUYAControllerANE.BUTTON_MENU == ouyaEvent.button )
 			{
 				trace( "OUYA Home Button Pressed" );
 			}

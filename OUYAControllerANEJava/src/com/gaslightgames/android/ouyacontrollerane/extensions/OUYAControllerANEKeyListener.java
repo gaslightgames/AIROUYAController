@@ -27,9 +27,10 @@ public class OUYAControllerANEKeyListener implements View.OnKeyListener
 			// pressed which button/axis.
 			OuyaController.onKeyDown( keyCode, keyEvent );
 			
-			controller = OuyaController.getControllerByDeviceId( keyEvent.getDeviceId() );
+			//controller = OuyaController.getControllerByDeviceId( keyEvent.getDeviceId() );
 			
-			this.ouyaExtensionContext.notifyButtonDown( controller.getPlayerNum(), keyCode );
+			//this.ouyaExtensionContext.notifyButtonDown( controller.getPlayerNum(), keyCode );
+			this.ouyaExtensionContext.notifyButtonDown( OuyaController.getPlayerNumByDeviceId( keyEvent.getDeviceId() ), keyCode );
 		}
 		else
 		{
@@ -37,9 +38,10 @@ public class OUYAControllerANEKeyListener implements View.OnKeyListener
 			// pressed which button/axis.
 			OuyaController.onKeyUp( keyCode, keyEvent );
 			
-			controller = OuyaController.getControllerByDeviceId( keyEvent.getDeviceId() );
+			//controller = OuyaController.getControllerByDeviceId( keyEvent.getDeviceId() );
 			
-			this.ouyaExtensionContext.notifyButtonUp( controller.getPlayerNum(), keyCode );
+			//this.ouyaExtensionContext.notifyButtonUp( controller.getPlayerNum(), keyCode );
+			this.ouyaExtensionContext.notifyButtonUp( OuyaController.getPlayerNumByDeviceId( keyEvent.getDeviceId() ), keyCode );
 		}
 		
 		return true;

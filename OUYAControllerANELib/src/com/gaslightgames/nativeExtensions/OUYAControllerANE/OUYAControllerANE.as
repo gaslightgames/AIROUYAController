@@ -25,7 +25,8 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		public static const RIGHT_TRIGGER:int			= 16;
 		public static const LEFT_SHOULDER:int			= 17;
 		public static const RIGHT_SHOULDER:int			= 18;
-		public static const BUTTON_SYSTEM:int			= 19;
+		public static const BUTTON_MENU:int				= 19;	// This has been changed from SYSTEM to MENU, ODK 1.0.3
+		//public static const BUTTON_SYSTEM:int			= 19;
 		public static const TOUCHPAD:int				= 20;
 		
 		public var player1:PlayerController;

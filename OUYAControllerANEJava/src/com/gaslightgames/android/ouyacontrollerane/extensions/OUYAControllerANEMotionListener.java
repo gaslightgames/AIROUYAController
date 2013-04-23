@@ -73,7 +73,8 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 			{
 				if( null != controller )
 				{
-					this.ouyaExtensionContext.notifyControllerLeftStick( controller.getPlayerNum(), this.leftStickX, this.leftStickY );
+					//this.ouyaExtensionContext.notifyControllerLeftStick( controller.getPlayerNum(), this.leftStickX, this.leftStickY );
+					this.ouyaExtensionContext.notifyControllerLeftStick( OuyaController.getPlayerNumByDeviceId( event.getDeviceId() ), this.leftStickX, this.leftStickY );
 				}
 				this.leftStickXOld = this.leftStickX;
 				this.leftStickYOld = this.leftStickY;
@@ -104,7 +105,8 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 			{
 				if( null != controller )
 				{
-					this.ouyaExtensionContext.notifyControllerRightStick( controller.getPlayerNum(), this.rightStickX, this.rightStickY );
+					//this.ouyaExtensionContext.notifyControllerRightStick( controller.getPlayerNum(), this.rightStickX, this.rightStickY );
+					this.ouyaExtensionContext.notifyControllerRightStick( OuyaController.getPlayerNumByDeviceId( event.getDeviceId() ), this.rightStickX, this.rightStickY );
 				}
 				this.rightStickXOld = this.rightStickX;
 				this.rightStickYOld = this.rightStickY;
@@ -113,13 +115,15 @@ public class OUYAControllerANEMotionListener implements View.OnGenericMotionList
 			// Check if Left Trigger
 			if( 0 < event.getAxisValue( OuyaController.AXIS_L2 ) )
 			{
-				this.ouyaExtensionContext.notifyControllerLeftTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_L2 ) );
+				//this.ouyaExtensionContext.notifyControllerLeftTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_L2 ) );
+				this.ouyaExtensionContext.notifyControllerLeftTrigger( OuyaController.getPlayerNumByDeviceId( event.getDeviceId() ), event.getAxisValue( OuyaController.AXIS_L2 ) );
 			}
 			
 			// Check if Right Trigger
 			if( 0 < event.getAxisValue( OuyaController.AXIS_R2 ) )
 			{
-				this.ouyaExtensionContext.notifyControllerRightTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_R2 ) );
+				//this.ouyaExtensionContext.notifyControllerRightTrigger( controller.getPlayerNum(), event.getAxisValue( OuyaController.AXIS_R2 ) );
+				this.ouyaExtensionContext.notifyControllerRightTrigger( OuyaController.getPlayerNumByDeviceId( event.getDeviceId() ), event.getAxisValue( OuyaController.AXIS_R2 ) );
 			}
 		}
 		return true;

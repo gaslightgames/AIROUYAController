@@ -59,7 +59,7 @@ public class OUYAControllerANEExtensionContext extends FREContext
 		case OuyaController.BUTTON_R1:
 			keyCodeStr = "18";
 			break;
-		case OuyaController.BUTTON_SYSTEM:
+		case OuyaController.BUTTON_MENU:
 			keyCodeStr = "19";
 			break;
 		}
@@ -120,7 +120,7 @@ public class OUYAControllerANEExtensionContext extends FREContext
 		case OuyaController.BUTTON_R1:
 			keyCodeStr = "18";
 			break;
-		case OuyaController.BUTTON_SYSTEM:
+		case OuyaController.BUTTON_MENU:
 			keyCodeStr = "19";
 			break;
 		// CASE "20" Is the TOUCHPAD - but handled separately

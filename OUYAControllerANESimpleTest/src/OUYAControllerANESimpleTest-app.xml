@@ -265,6 +265,16 @@
 		together in order to use AIR's NetworkInfo APIs-->
 			    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
 			    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
+			    
+			    <application>
+			    	<activity>
+			    		<intent-filter>
+			    			<action android:name="android.intent.action.MAIN" />
+			    			<category android:name="android.intent.category.LAUNCHER" />
+			    			<category android:name="tv.ouya.intent.category.GAME" />
+			    		</intent-filter>
+			    	</activity>
+			    </application>
 			</manifest>
 			
 		]]></manifestAdditions>
