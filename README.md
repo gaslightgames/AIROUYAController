@@ -32,10 +32,10 @@ All buttons work (except the OUYA System/Home Button - this is an outside case)
 To-Do
 =====
 
+* Make SWC Library a Singleton [DONE]
 * Updated to ODK 1.0.3 [DONE]
 * Support BUTTON_MENU [DONE]
 * Fix calls to ODK for playerId [DONE]
-
 * Build base ANE [DONE]
 * Include OuyaController library [DONE]
 * Extract .class files from OuyaController and embed into ANE (at JAR level) [DONE - must be done on ever new JAR!]
