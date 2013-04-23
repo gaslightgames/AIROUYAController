@@ -7,6 +7,8 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 	
 	public class OUYAControllerANE extends EventDispatcher
 	{
+		public static var instance:OUYAControllerANE;
+		
 		public static const LEFT_STICK_X:int			= 1;
 		public static const LEFT_STICK_Y:int			= 2;
 		public static const LEFT_STICK_BUTTON:int		= 3;
@@ -39,7 +41,16 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		private static var _isSupported:Boolean = false;
 		private static var _isSupportedSet:Boolean = false;
 		
-		public function OUYAControllerANE( target:IEventDispatcher=null )
+		public static function getInstance():OUYAControllerANE
+		{
+			if( null == instance )
+			{
+				instance = new OUYAControllerANE( new SingletonEnforcer() );
+			}
+			return instance;
+		}
+		
+		public function OUYAControllerANE( enforcer:SingletonEnforcer, target:IEventDispatcher=null )
 		{
 			trace( "Building OUYA Controller ANE" );
 			if( !extContext )
@@ -159,3 +170,5 @@ package com.gaslightgames.nativeExtensions.OUYAControllerANE
 		}
 	}
 }
+
+internal class SingletonEnforcer{}

@@ -28,7 +28,7 @@ package
 			
 			if( OUYAControllerANE.isSupported )
 			{
-				this.ouyaController = new OUYAControllerANE();
+				this.ouyaController = OUYAControllerANE.getInstance();
 				
 				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_DOWN, buttonDown );
 				this.ouyaController.player1.addEventListener( OUYAControllerANEEvent.BUTTON_UP, buttonUp );
