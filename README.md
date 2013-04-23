@@ -2,6 +2,7 @@ AIROUYAController
 =================
 
 AIROUYAController is an unofficial Native Extension for Adobe AIR designed to expose the functionalities of the OUYA Controller to ActionScript 3.
+<BR>This project is most likely to be deprecated by the native AIR support for OUYA controllers coming in AIR3.7.  It will be updated in case any functionality is missing from the built in solution.
 
 Folder Structure
 ================
@@ -30,6 +31,10 @@ All buttons work (except the OUYA System/Home Button - this is an outside case)
 
 To-Do
 =====
+
+* Updated to ODK 1.0.3 [DONE]
+* Support BUTTON_MENU [DONE]
+* Fix calls to ODK for playerId [DONE]
 
 * Build base ANE [DONE]
 * Include OuyaController library [DONE]
