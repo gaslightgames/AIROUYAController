@@ -32,6 +32,7 @@ All buttons work (except the OUYA System/Home Button - this is an outside case)
 To-Do
 =====
 
+* Modify external class files that are included (to fix collisions with IAP ANE) [DONE]
 * Make SWC Library a Singleton [DONE]
 * Updated to ODK 1.0.3 [DONE]
 * Support BUTTON_MENU [DONE]
